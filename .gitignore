@@ -35,3 +35,6 @@
 # VS Code & IDEs
 **/.vscode/
 **/.idea/
+
+# PII / sensitive data exports
+*.csv
