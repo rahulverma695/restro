@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-cabernet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestroPOS Pitch Deck & Brochure</title>
+  <!-- Outfit Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Default Theme: Cabernet (Rose/Wine Accent & Cream) */
+    :root {
+      --bg-cream: #FAF5F6; /* Cabernet rose-cream */
+      --bg-card: #ffffff;
+      --accent: #be123c; /* Cabernet Rose */
+      --accent-hover: #9f1239;
+      --accent-dim: rgba(190, 18, 60, 0.06);
+      --accent-glow: rgba(190, 18, 60, 0.12);
+      --text-dark: #2A1A1E; /* Deep Wine Charcoal */
+      --text-muted: #6B555B; /* Muted Cabernet */
+      --border: rgba(190, 18, 60, 0.12);
+      --green: #16a34a;
+      --red: #dc2626;
+    }
+
+    /* Theme override classes */
+    .theme-bronze {
+      --bg-cream: #FDFBF7;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --accent-dim: rgba(217, 119, 6, 0.06);
+      --accent-glow: rgba(217, 119, 6, 0.12);
+      --text-dark: #2E251F;
+      --text-muted: #69615A;
+      --border: rgba(217, 119, 6, 0.12);
+    }
+    
+    .theme-emerald {
+      --bg-cream: #F5FAF6;
+      --accent: #10b981;
+      --accent-hover: #059669;
+      --accent-dim: rgba(16, 185, 129, 0.06);
+      --accent-glow: rgba(16, 185, 129, 0.12);
+      --text-dark: #192E24;
+      --text-muted: #536B5E;
+      --border: rgba(16, 185, 129, 0.12);
+    }
+
+    .theme-violet {
+      --bg-cream: #FAF9FC;
+      --accent: #8b5cf6;
+      --accent-hover: #6d28d9;
+      --accent-dim: rgba(139, 92, 246, 0.06);
+      --accent-glow: rgba(139, 92, 246, 0.12);
+      --text-dark: #231C2E;
+      --text-muted: #5D546B;
+      --border: rgba(139, 92, 246, 0.12);
+    }
+
+    .theme-ocean {
+      --bg-cream: #F4FAF9;
+      --accent: #06b6d4;
+      --accent-hover: #0891b2;
+      --accent-dim: rgba(6, 182, 212, 0.06);
+      --accent-glow: rgba(6, 182, 212, 0.12);
+      --text-dark: #162B2E;
+      --text-muted: #506569;
+      --border: rgba(6, 182, 212, 0.12);
+    }
+
+    .theme-cabernet {
+      --bg-cream: #FAF5F6;
+      --accent: #be123c;
+      --accent-hover: #9f1239;
+      --accent-dim: rgba(190, 18, 60, 0.06);
+      --accent-glow: rgba(190, 18, 60, 0.12);
+      --text-dark: #2A1A1E;
+      --text-muted: #6B555B;
+      --border: rgba(190, 18, 60, 0.12);
+    }
+
+    .theme-matcha {
+      --bg-cream: #FAFBF5;
+      --accent: #65a30d;
+      --accent-hover: #4d7c0f;
+      --accent-dim: rgba(101, 163, 13, 0.06);
+      --accent-glow: rgba(101, 163, 13, 0.12);
+      --text-dark: #222B16;
+      --text-muted: #5E6950;
+      --border: rgba(101, 163, 13, 0.12);
+    }
+
+    .theme-espresso {
+      --bg-cream: #FDFCF7;
+      --accent: #ca8a04;
+      --accent-hover: #a16207;
+      --accent-dim: rgba(202, 138, 4, 0.06);
+      --accent-glow: rgba(202, 138, 4, 0.12);
+      --text-dark: #2E2A1E;
+      --text-muted: #6B6655;
+      --border: rgba(202, 138, 4, 0.12);
+    }
+
+    .theme-cyber {
+      --bg-cream: #FCF4FA;
+      --accent: #db2777;
+      --accent-hover: #be185d;
+      --accent-dim: rgba(219, 39, 119, 0.06);
+      --accent-glow: rgba(219, 39, 119, 0.12);
+      --text-dark: #2F1725;
+      --text-muted: #6E5364;
+      --border: rgba(219, 39, 119, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #edebe7;
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s;
+    }
+
+    /* Presentation Slides Container */
+    .slide {
+      background-color: var(--bg-cream);
+      width: 1000px;
+      height: 562.5px; /* Perfect 16:9 Aspect Ratio */
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(46, 37, 31, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      page-break-after: always;
+      break-after: page;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    /* Print instruction banner */
+    .print-banner {
+      width: 1000px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(46, 37, 31, 0.03);
+    }
+    .print-banner-text h4 {
+      font-size: 14px;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .print-banner-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    
+    /* Active Switcher UI */
+    .switcher-control {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fafaf9;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 30px;
+    }
+    .switcher-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .switcher-options {
+      display: flex;
+      gap: 6px;
+    }
+    .theme-pill {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .theme-pill:hover {
+      transform: scale(1.15);
+    }
+    .theme-pill.active {
+      transform: scale(1.2);
+    }
+
+    .print-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.2s;
+    }
+    .print-btn:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Slide Content Layouts */
+    .slide-body {
+      flex: 1;
+      padding: 40px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: center;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* Header component on slides */
+    .slide-header {
+      padding: 32px 48px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-logo {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background-color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+    .brand-logo svg {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+    .slide-num {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Elements */
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -1.2px;
+      color: var(--text-dark);
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.8px;
+      line-height: 1.25;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+    h2 span {
+      color: var(--accent);
+      transition: color 0.3s;
+    }
+    p.subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    p.desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      transition: color 0.3s;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      background-color: var(--accent-dim);
+      border: 1px solid rgba(217, 119, 6, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    /* Bullet List */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      transition: color 0.3s;
+    }
+    .bullet-list li strong {
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .bullet-list li svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: stroke 0.3s;
+    }
+    .bullet-list.cross-list li svg {
+      stroke: var(--red);
+    }
+
+    /* Images */
+    .mockup-container {
+      width: 100%;
+      height: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 15px 30px rgba(46, 37, 31, 0.05);
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s;
+    }
+    .mockup-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Comparison Table */
+    table.comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    table.comp-table th {
+      text-align: left;
+      padding: 10px 14px;
+      color: var(--text-dark);
+      border-bottom: 1.5px solid var(--border);
+      font-weight: 700;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    table.comp-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(190,18,60,0.06);
+      color: var(--text-muted);
+      transition: color 0.3s, border-color 0.3s;
+    }
+    table.comp-table tr.highlight-row {
+      background-color: var(--accent-dim);
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+    table.comp-table tr.highlight-row td {
+      color: var(--accent);
+      transition: color 0.3s;
+    }
+
+    /* Feature Grid */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(46, 37, 31, 0.02);
+      transition: border-color 0.3s;
+    }
+    .feat-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+    .feat-card h4 svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent);
+      transition: stroke 0.3s;
+    }
+    .feat-card p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      transition: color 0.3s;
+    }
+
+    /* Footer styling */
+    .slide-footer {
+      padding: 0 48px 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.6;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    /* Model Columns */
+    .model-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .model-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(46, 37, 31, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.3s;
+    }
+    .model-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .model-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+    .model-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      transition: color 0.3s;
+    }
+
+    /* Print styles */
+    @media print {
+      @page {
+        size: landscape;
+        margin: 0;
+      }
+      body {
+        background-color: var(--bg-cream) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .print-banner {
+        display: none !important;
+      }
+      .slide {
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print Instruction Banner -->
+  <div class="print-banner">
+    <div class="print-banner-text">
+      <h4>Export as PDF Brochure</h4>
+      <p>Click "Print Presentation" below, set Layout to **Landscape**, disable Headers/Footers, and select **Save as PDF**.</p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print Presentation</button>
+  </div>
+
+  <!-- SLIDE 1: COVER -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+        </div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">01 / 12</span>
+    </div>
+    <div class="slide-body">
+      <div style="max-width: 720px;">
+        <span class="badge" id="theme-badge">Cabernet Theme</span>
+        <h1>The Ultimate <span>Flat-Rate</span> POS Suite.</h1>
+        <p class="subtitle" style="margin-top: 14px; line-height: 1.55;">We build your POS exactly how you want it, with the features you need. A single flat ₹14,999/year package includes managed cloud hosting, automatic backups, and direct support.</p>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>restropos-marketing.vercel.app</span>
+      <span>© 2026 RestroPOS</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THE SUBSCRIPTION TRAP -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">02 / 12</span>
+    </div>
+    <div class="slide-body grid-2">
+      <div>
+        <h2>Stop paying <span>per terminal</span> and per feature.</h2>
+        <p class="desc" style="margin-bottom: 20px;">Standard POS systems lock you into an endless subscription loop, eating your hard-earned profits month after month.</p>
+        <ul class="bullet-list cross-list">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" /></svg>
+            <span><strong>Continuous Screen Fees:</strong> They charge you extra for every cashier terminal, waiter tablet, or kitchen display screen you add.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" /></svg>
+            <span><strong>Feature Paywalls:</strong> Advanced modules like recipe inventory tracking, SMS marketing, or CRM loyalty are locked behind high-tier plans.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" /></svg>
+            <span><strong>Transaction Commissions:</strong> They take hidden percentage cuts on your own table-specific QR self-ordering transactions.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mockup-container">
+        <img class="mockup-img" src="marketing/pos_dashboard.png" alt="POS Dashboard Screenshot">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>The SaaS Problem</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: OUR SIMPLE MODEL -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">03 / 12</span>
+    </div>
+    <div class="slide-body">
+      <div style="margin-bottom: 24px; text-align: center;">
+        <h2>Our Model is Simple</h2>
+        <p class="desc">One flat annual fee. Unlimited terminals. Zero hidden markups.</p>
+      </div>
+      <div class="model-container">
+        <div class="model-card">
+          <div class="model-num">01</div>
+          <div class="model-title">Custom-Built for You</div>
+          <div class="model-desc">We adapt the software to match your menu layouts, printer routing, and cashier workflows. If you need a custom button or custom report, our engineering team builds it for you.</div>
+        </div>
+        <div class="model-card">
+          <div class="model-num">02</div>
+          <div class="model-title">Unlimited Devices &amp; Screens</div>
+          <div class="model-desc">Run cashier terminals, waiter tablets, kitchen screens, and table QRs under a single flat ₹14,999/year subscription. No per-terminal fees, no transaction cuts, and no feature locks.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Our Simple Model</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: POWERFUL FEATURES -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">04 / 12</span>
+    </div>
+    <div class="slide-body">
+      <h2 style="text-align: center; margin-bottom: 24px;">Everything You Need to Run Your Outlet</h2>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <h4><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Ultra-Fast POS Billing</h4>
+          <p>Take orders, split bills, and print KOTs to the kitchen in under 3 clicks. Process UPI, Card, and Cash seamlessly.</p>
+        </div>
+        <div class="feat-card">
+          <h4><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg> Interactive Table View</h4>
+          <p>Table layouts showing occupied, reserved, and billing status in real-time, helping staff manage guest seating flows instantly.</p>
+        </div>
+        <div class="feat-card">
+          <h4><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m0 16v1m9-9h1M3 12h1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg> Self-Ordering Table QR</h4>
+          <p>Diners scan table-specific QRs to view the digital menu and place orders from their phones, syncing directly to the cashier.</p>
+        </div>
+        <div class="feat-card">
+          <h4><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg> Staff &amp; Cashier Roles</h4>
+          <p>Define shifts and custom access controls for owners, cashiers, and bartenders to ensure secure drawer management.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Full Feature Suite</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: B2C DINEOUT & SMART PRE-ORDERING -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">05 / 12</span>
+    </div>
+    <div class="slide-body grid-2">
+      <div>
+        <h2>Diners Book Slots &amp; <span>Pre-Order Ahead</span></h2>
+        <p class="desc" style="margin-bottom: 20px;">Our integrated Dineout PWA lets diners reserve tables and pre-select meals, cutting wait times to under 5 minutes.</p>
+        <ul class="bullet-list">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>0% Commission Bookings:</strong> Keep 100% of your reservation deposits and cover charges. Stop paying commissions per seat or per cover.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Direct Slot Booking:</strong> Customers search your cafe, browse active offers, and request bookings directly from the Dineout PWA.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>"Order Ahead" Cart:</strong> Customers select dishes when booking. Kitchen receives the pre-order beforehand.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Atomic Table Seating &amp; QR Merging:</strong> POS seating dynamically binds reservation pre-orders. Subsequent scans merge bills atomically.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mockup-container">
+        <img class="mockup-img" src="marketing/dineout_booking.png" alt="Dineout booking & pre-ordering screen mockup">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>B2C Dineout &amp; Pre-Ordering</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: CUSTOMER DINE-IN HUB & MINI ADD-ONS -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">06 / 12</span>
+    </div>
+    <div class="slide-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+        <div>
+          <h2>Customer Dine-In Hub &amp; <span>Mini Add-ons</span></h2>
+          <p class="desc">Gamify and enhance the dine-in experience with modular interactive upgrades.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+        <div class="feat-card" style="border-top: 3px solid var(--accent); padding: 14px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; stroke: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" /></svg>
+              Offers &amp; Coupons
+            </h4>
+            <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">Renders active discount codes that customers can copy and apply with one tap.</p>
+          </div>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Standard PWA</span>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent); padding: 14px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; stroke: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              Bill Splitter
+            </h4>
+            <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">Built-in digital calculator to split the bill with friends and include tips at checkout.</p>
+          </div>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Standard PWA</span>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent); padding: 14px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; stroke: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+              Jukebox Queue
+            </h4>
+            <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">Customers request songs from their table QR page to add to the live café music queue.</p>
+          </div>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Included widget</span>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent); padding: 14px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; stroke: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.02 6.02 0 00-4.643-5.877A1.986 1.986 0 0012 5c-.777 0-1.447.443-1.787 1.085A6.02 6.02 0 005.624 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+              Waiter Bell
+            </h4>
+            <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">Direct QR waiter paging alerts ("Bring Water", "Get Bill") sent instantly to staff screens.</p>
+          </div>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Included widget</span>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent); padding: 14px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; stroke: var(--accent);"><path stroke-linecap="round" stroke-linejoin="round" d="M5 18h14a2 2 0 002-2V10a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2zM5 8l1.5-3h11L19 8M8 18a2 2 0 110-4 2 2 0 010 4zm8 0a2 2 0 110-4 2 2 0 010 4z" /></svg>
+              Valet Callback
+            </h4>
+            <p style="font-size: 11px; line-height: 1.4; color: var(--text-muted);">Diners scan receipt QR codes to request their valet vehicle dispatch before leaving.</p>
+          </div>
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Included widget</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Dine-In Hub &amp; Add-ons</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: BESPOKE OPERATIONS & CUSTOM SOFTWARE -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">07 / 12</span>
+    </div>
+    <div class="slide-body grid-2">
+      <div>
+        <span class="badge">Bespoke Development</span>
+        <h2>We build <span>any kind of software</span> you need.</h2>
+        <p class="desc" style="margin-bottom: 20px;">We are not just limited to restaurant billing. If your business operations require custom modules, our engineering team builds it for you at no extra charge.</p>
+        <ul class="bullet-list">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Custom HRMS Platforms:</strong> Employee shift check-ins, attendance logs, and staff profiles tailored for your store.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Custom Payroll Modules:</strong> Calculate salaries, bonuses, and staff payouts directly within the system.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Tailored Integrations &amp; CRM:</strong> Connect with external legacy APIs or customize your customer loyalty rules.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mockup-container" style="background: #FCFAF6; display: flex; flex-direction: column; gap: 16px; padding: 24px; justify-content: center; height: 280px;">
+        <div style="display: flex; gap: 12px; align-items: center; background: #fff; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); width: 100%;">
+          <div style="width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--accent); font-weight: bold; font-size: 16px;">H</span>
+          </div>
+          <div style="text-align: left;">
+            <div style="font-size: 13px; font-weight: 800; color: var(--text-dark);">Store HRMS &amp; Attendance</div>
+            <div style="font-size: 10px; color: var(--text-muted);">Active check-ins: 14 staff members</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center; background: #fff; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); width: 100%;">
+          <div style="width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--accent); font-weight: bold; font-size: 16px;">P</span>
+          </div>
+          <div style="text-align: left;">
+            <div style="font-size: 13px; font-weight: 800; color: var(--text-dark);">Custom Store Payroll</div>
+            <div style="font-size: 10px; color: var(--text-muted);">Hourly wages &amp; split payouts enabled</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center; background: #fff; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); width: 100%;">
+          <div style="width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--accent); font-weight: bold; font-size: 16px;">S</span>
+          </div>
+          <div style="text-align: left;">
+            <div style="font-size: 13px; font-weight: 800; color: var(--text-dark);">Custom Operations CRM</div>
+            <div style="font-size: 10px; color: var(--text-muted);">Linked with local inventory depletion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Custom Operations Software</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: COST COMPARISON -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">08 / 12</span>
+    </div>
+    <div class="slide-body" style="padding-top: 8px;">
+      <h2 style="text-align: center; margin-bottom: 12px;">The Math: <span>SaaS Subscription vs. Our Flat-Rate Package</span></h2>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Cost Item</th>
+            <th>Typical SaaS Subscription (Base + Add-ons)</th>
+            <th>RestroPOS (Flat-Rate Subscription)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Upfront Setup Fee</strong></td>
+            <td>₹5,000 – ₹10,000</td>
+            <td><strong>₹0</strong> (Included)</td>
+          </tr>
+          <tr>
+            <td><strong>Monthly Software Rent</strong></td>
+            <td>₹3,000/mo (Never-ending)</td>
+            <td><strong>₹0</strong> (Billed annually)</td>
+          </tr>
+          <tr>
+            <td><strong>Custom Add-ons &amp; Modules</strong></td>
+            <td>Extra per module (₹2k–₹5k each)</td>
+            <td><strong>₹0</strong> (All 13+ modules included)</td>
+          </tr>
+          <tr>
+            <td><strong>Year 1 Total Cost</strong></td>
+            <td>₹41,000+</td>
+            <td><strong>₹14,999</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Year 2 &amp; 3 Cost</strong></td>
+            <td>₹72,000+</td>
+            <td><strong>₹29,998</strong></td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>3-Year Total Outlay</strong></td>
+            <td><strong>₹1,13,000+ (With limits)</strong></td>
+            <td><strong>₹44,997 (All-Inclusive)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="slide-footer">
+      <span>Financial Comparison</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: OFFLINE SYNC -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">09 / 12</span>
+    </div>
+    <div class="slide-body grid-2">
+      <div>
+        <h2>Internet Down? <span>Keep Billing.</span></h2>
+        <p class="desc" style="margin-bottom: 20px;">Other cloud POS applications freeze when the internet cuts. RestroPOS keeps working without missing a beat.</p>
+        <ul class="bullet-list">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Local Mini-PC DB:</strong> We set up a local database server inside your building. Your local devices communicate directly with it.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Automatic Cloud Sync:</strong> The moment your internet reconnects, all transactions sync automatically to the cloud.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Zero Speed Lag:</strong> Fast response times for billing tablets and thermal kitchen printers, regardless of external bandwidth.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mockup-container">
+        <img class="mockup-img" src="marketing/qr_ordering.png" alt="QR Ordering Mockup">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Offline Architecture</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: CLOUD HOSTING & NO MARKUPS -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">10 / 12</span>
+    </div>
+    <div class="slide-body grid-2">
+      <div>
+        <h2>Managed Cloud Hosting. <span>Zero Stress.</span></h2>
+        <p class="desc" style="margin-bottom: 24px;">Continuous server infrastructure monitoring, automated upgrades, and speed optimizations fully managed by RestroPOS.</p>
+        <ul class="bullet-list">
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>All-Inclusive Hosting:</strong> Dedicated database and cloud server hosting costs are fully covered under your flat-rate subscription.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Zero Server Management:</strong> You never have to log into database servers or hosting panels; we handle 100% of the maintenance and upkeep.</span>
+          </li>
+          <li>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            <span><strong>Robust Backups:</strong> Automated hourly database snapshots and daily backups managed at no extra cost to secure your data.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mockup-container">
+        <img class="mockup-img" src="marketing/server_sync.png" alt="Server Sync Diagram">
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Hosting Control</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: DEDICATED MAINTENANCE -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">11 / 12</span>
+    </div>
+    <div class="slide-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px;">
+        <div>
+          <h2>Your Dedicated Tech Team</h2>
+          <p class="desc">All continuous upkeep and active assistance covered by your subscription.</p>
+        </div>
+        <div style="text-align: right;">
+          <span style="font-size: 34px; font-weight: 800; color: var(--accent); line-height: 1;">Included</span>
+          <p style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Part of your Subscription</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <div class="feat-card" style="border-top: 3px solid var(--accent);">
+          <h4 style="margin-bottom: 6px;">SSL &amp; Domain</h4>
+          <p>We configure and manage your secure HTTPS address so your billing link is always live and safe.</p>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent);">
+          <h4 style="margin-bottom: 6px;">Daily Backups</h4>
+          <p>We set up automated database backups so your sales reports, billing data, and menus are never lost.</p>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent);">
+          <h4 style="margin-bottom: 6px;">Core Upgrades</h4>
+          <p>We run security updates and code optimizations to keep the database connections running fast.</p>
+        </div>
+        <div class="feat-card" style="border-top: 3px solid var(--accent);">
+          <h4 style="margin-bottom: 6px;">Tech Support</h4>
+          <p>Direct WhatsApp contact with our engineers. If anything goes wrong, we jump on it immediately.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Dedicated Maintenance</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: CALL TO ACTION -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand">
+        <div class="brand-logo"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></div>
+        <span class="brand-name">RestroPOS</span>
+      </div>
+      <span class="slide-num">12 / 12</span>
+    </div>
+    <div class="slide-body" style="text-align: center; max-width: 820px; margin: 0 auto;">
+      <h2 style="margin-bottom: 8px;">Launch Your Flat-Rate POS Today</h2>
+      <p class="subtitle" style="margin-bottom: 20px;">Go live in under 20 minutes with our simple onboarding process.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; text-align: left;">
+        <div style="background: #ffffff; border: 1px solid var(--border); padding: 14px; border-radius: 12px; box-shadow: 0 4px 10px rgba(46, 37, 31, 0.02);">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px;">1. Discovery</h4>
+          <p style="font-size: 11px; color: var(--text-muted); line-height: 1.45;">We map your menu, tables, and note down any custom features you want.</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid var(--border); padding: 14px; border-radius: 12px; box-shadow: 0 4px 10px rgba(46, 37, 31, 0.02);">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px;">2. Set Up &amp; Brand</h4>
+          <p style="font-size: 11px; color: var(--text-muted); line-height: 1.45;">We build your POS in your brand colors, load your menu, and set up your local hardware.</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid var(--border); padding: 14px; border-radius: 12px; box-shadow: 0 4px 10px rgba(46, 37, 31, 0.02);">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px;">3. Go Live</h4>
+          <p style="font-size: 11px; color: var(--text-muted); line-height: 1.45;">We train your staff, hand over your admin access, and go live!</p>
+        </div>
+      </div>
+ 
+      <div style="background: #ffffff; border: 1px solid var(--border); padding: 16px 28px; border-radius: 12px; display: inline-block; margin-bottom: 16px; text-align: left; box-shadow: 0 4px 12px rgba(46, 37, 31, 0.02);">
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;"><strong>Speak directly to our engineering team:</strong></p>
+        <p style="font-size: 18px; font-weight: 800; color: var(--accent); margin-bottom: 2px;">WhatsApp/Call: +91 97406 15639 &nbsp;·&nbsp; Email: nikhilbhaviyavar@gmail.com</p>
+        <p style="font-size: 12px; color: var(--text-muted); text-align: center;">Web: restropos-marketing.vercel.app</p>
+      </div>
+ 
+      <p class="desc" style="font-size: 11px; color: var(--text-muted);">No commissions. No hidden add-on costs. Continuous support, updates, and maintenance included.</p>
+    </div>
+    <div class="slide-footer">
+      <span>Get Started</span>
+      <span>restropos-marketing.vercel.app</span>
+    </div>
+  </div>
+
+</body>
+</html>
