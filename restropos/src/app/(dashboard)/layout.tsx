@@ -1,10 +1,10 @@
+import { connection } from "next/server";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { Sidebar } from "@/components/layout/sidebar";
 
-export const dynamic = "force-dynamic";
-
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+  await connection();
   const session = await auth();
   if (!session) redirect("/login");
 
