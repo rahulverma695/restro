@@ -91,6 +91,8 @@ model Category {
   restaurantId String
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   menuItems    MenuItem[]
+
+  @@unique([restaurantId, name])
 }
 
 model MenuItem {
@@ -109,6 +111,8 @@ model MenuItem {
   variants     Variant[]
   orderItems   OrderItem[]
   inventoryLinks MenuInventoryLink[]
+
+  @@index([restaurantId, categoryId, isAvailable])
 }
 
 model Variant {
@@ -145,6 +149,9 @@ model Order {
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
   reservation  Reservation?
+
+  @@index([restaurantId, createdAt(sort: Desc)])
+  @@index([restaurantId, status])
 }
 
 enum OrderType {
@@ -184,6 +191,8 @@ model OrderItem {
   price      Float
   notes      String?
   status     KOTStatus @default(PENDING)
+
+  @@index([orderId])
 }
 
 enum KOTStatus {
@@ -226,6 +235,8 @@ model InventoryItem {
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   menuLinks    MenuInventoryLink[]
   updatedAt    DateTime @updatedAt
+
+  @@index([restaurantId])
 }
 
 model MenuInventoryLink {
@@ -253,6 +264,8 @@ model StaffProfile {
   isActive     Boolean  @default(true)
   attendance   AttendanceRecord[]
   leaves       LeaveRequest[]
+
+  @@index([restaurantId, isActive])
 }
 
 enum ShiftType {
@@ -367,6 +380,9 @@ model Customer {
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   orders       Order[]
   createdAt    DateTime   @default(now())
+
+  @@index([restaurantId, phone])
+  @@unique([restaurantId, phone])
 }
 
 model Lead {
@@ -397,6 +413,8 @@ model Offer {
   restaurant   Restaurant   @relation(fields: [restaurantId], references: [id])
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
+
+  @@index([restaurantId, isActive])
 }
 
 enum DiscountType {
@@ -420,6 +438,8 @@ model Reservation {
   updatedAt    DateTime          @updatedAt
   orderId      String?           @unique
   order        Order?            @relation(fields: [orderId], references: [id])
+
+  @@index([restaurantId, dateTime])
 }
 
 enum ReservationStatus {

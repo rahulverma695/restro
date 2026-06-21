@@ -32,23 +32,12 @@ async function checkEndpoint(name: string, path: string, method: string, expect:
 }
 
 export async function GET(req: NextRequest) {
-  // Cron job is completely disabled until the app is made live
-  return NextResponse.json({
-    message: "Cron job is completely disabled until the app is made live.",
-    status: "disabled",
-    timestamp: new Date().toISOString(),
-  });
+  const authHeader = req.headers.get("authorization");
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
-  // Accept Vercel cron calls (no auth header needed — Vercel infrastructure protects it)
-  // Also accept manual triggers with the ops key
-  const opsKey = req.headers.get("x-ops-key");
-  const isManual = opsKey === process.env.OPS_PASSWORD;
-  const isVercelCron = req.headers.get("user-agent")?.includes("vercel-cron") || req.headers.get("x-vercel-cron") === "1";
-
-  if (!isManual && !isVercelCron) {
-    // Still allow if no auth — cron endpoint is internal only via /api/ops path
-    // which is not publicly linked anywhere
-  }  const results = await Promise.all(
+  const results = await Promise.all(
     CHECKS.map(c => checkEndpoint(c.name, c.path, c.method, c.expect))
   );
 

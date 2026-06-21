@@ -1,12 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { Resend } from "resend";
+import { z } from "zod";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const ForgotPasswordSchema = z.object({
+  email: z.string().email(),
+});
+
 export async function POST(req: NextRequest) {
-  const { email } = await req.json();
-  if (!email) return NextResponse.json({ error: "Email required" }, { status: 400 });
+  const { allowed, retryAfter } = await checkRateLimit(getClientIp(req), 5, "1 m");
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
+    );
+  }
+
+  const parsed = ForgotPasswordSchema.safeParse(await req.json());
+  if (!parsed.success) {
+    return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
+  }
+  const { email } = parsed.data;
 
   const user = await prisma.user.findUnique({ where: { email } });
   // Always return success to prevent email enumeration

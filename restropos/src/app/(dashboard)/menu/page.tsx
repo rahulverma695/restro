@@ -1,18 +1,24 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { cacheTag, cacheLife } from "next/cache";
 import { MenuClient } from "./menu-client";
 
-export default async function MenuPage() {
-  const session = await auth();
-  const restaurantId = (session?.user as any)?.restaurantId;
-
-  const categories = await prisma.category.findMany({
+async function getMenuCategories(restaurantId: string) {
+  "use cache";
+  cacheTag(`menu-${restaurantId}`);
+  cacheLife("minutes");
+  return prisma.category.findMany({
     where: { restaurantId },
     include: {
       menuItems: { include: { variants: true }, orderBy: { name: "asc" } },
     },
     orderBy: { sortOrder: "asc" },
   });
+}
 
+export default async function MenuPage() {
+  const session = await auth();
+  const restaurantId = (session?.user as any)?.restaurantId;
+  const categories = await getMenuCategories(restaurantId);
   return <MenuClient categories={categories} restaurantId={restaurantId} />;
 }

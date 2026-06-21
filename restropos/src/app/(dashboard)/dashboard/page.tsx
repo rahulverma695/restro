@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { formatCurrency } from "@/lib/utils";
 import { ArrowUpRight, TrendingUp, ShoppingCart, Users, UtensilsCrossed, AlertTriangle } from "lucide-react";
-import { DashboardCharts } from "./charts";
+import { DashboardCharts } from "./charts-loader";
 import { format } from "date-fns";
 import { LiveRefresh } from "@/components/live-refresh";
 

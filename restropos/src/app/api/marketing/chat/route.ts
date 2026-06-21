@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { GoogleGenAI } from "@google/genai";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 function getClient() {
   const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON!);
@@ -14,6 +15,14 @@ function getClient() {
 }
 
 export async function POST(req: NextRequest) {
+  const { allowed, retryAfter } = await checkRateLimit(getClientIp(req), 20, "1 m");
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
+    );
+  }
+
   const session = await auth();
   const restaurantId = (session?.user as any)?.restaurantId;
   if (!restaurantId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

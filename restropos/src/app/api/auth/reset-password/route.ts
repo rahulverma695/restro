@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
+import { timingSafeEqual } from "crypto";
 
 export async function POST(req: NextRequest) {
   const { email, otp, password } = await req.json();
@@ -16,7 +17,10 @@ export async function POST(req: NextRequest) {
     await prisma.passwordReset.delete({ where: { id: record.id } });
     return NextResponse.json({ error: "Code expired. Please request a new one." }, { status: 400 });
   }
-  if (record.otp !== otp) return NextResponse.json({ error: "Incorrect code." }, { status: 400 });
+  const storedBuf = Buffer.from(record.otp, "utf8");
+  const inputBuf = Buffer.from(String(otp), "utf8");
+  const otpMatches = storedBuf.length === inputBuf.length && timingSafeEqual(storedBuf, inputBuf);
+  if (!otpMatches) return NextResponse.json({ error: "Incorrect code." }, { status: 400 });
 
   const hashed = await bcrypt.hash(password, 12);
   await prisma.user.update({ where: { email }, data: { password: hashed } });

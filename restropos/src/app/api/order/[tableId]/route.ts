@@ -148,7 +148,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tab
       }
     }
 
-    const taxAmount = Math.round((subtotal - discount) * 0.05);
+    const restaurant = await prisma.restaurant.findUnique({ where: { id: table.restaurantId } });
+    const gstRate = (restaurant?.taxRate ?? 5) / 100;
+    const taxAmount = Math.round((subtotal - discount) * gstRate);
     const total = subtotal - discount + taxAmount;
 
     // Update existing order
@@ -210,7 +212,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tab
       }
     }
 
-    const taxAmount = Math.round((subtotal - discount) * 0.05);
+    const restaurant = await prisma.restaurant.findUnique({ where: { id: table.restaurantId } });
+    const gstRate = (restaurant?.taxRate ?? 5) / 100;
+    const taxAmount = Math.round((subtotal - discount) * gstRate);
     const total = subtotal - discount + taxAmount;
 
     const order = await prisma.order.create({

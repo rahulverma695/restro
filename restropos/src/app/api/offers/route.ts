@@ -1,5 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { z } from "zod";
+
+const CreateOfferSchema = z.object({
+  title: z.string().min(1).max(100),
+  description: z.string().max(500).optional(),
+  code: z.string().min(1).max(20).toUpperCase(),
+  discountType: z.enum(["PERCENTAGE", "FLAT"]),
+  value: z.number().positive(),
+  minBillAmount: z.number().min(0).default(0),
+  maxDiscount: z.number().positive().optional(),
+  startDate: z.string().datetime(),
+  endDate: z.string().datetime(),
+});
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -15,20 +28,22 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { title, description, code, discountType, value, minBillAmount, maxDiscount, startDate, endDate, isActive, restaurantId } = body;
-    if (!title || !code || !value || !endDate || !restaurantId) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    const parsed = CreateOfferSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     }
+    const { title, description, code, discountType, value, minBillAmount, maxDiscount, startDate, endDate } = parsed.data;
+    const { isActive, restaurantId } = body;
     const offer = await prisma.offer.create({
       data: {
         title,
         description,
         code,
         discountType,
-        value: Number(value),
-        minBillAmount: Number(minBillAmount || 0),
-        maxDiscount: maxDiscount ? Number(maxDiscount) : null,
-        startDate: new Date(startDate || new Date()),
+        value,
+        minBillAmount,
+        maxDiscount: maxDiscount ?? null,
+        startDate: new Date(startDate),
         endDate: new Date(endDate),
         isActive: isActive ?? true,
         restaurantId

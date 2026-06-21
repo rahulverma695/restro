@@ -1,13 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
 import { basePrisma } from "@/lib/prisma";
+import { z } from "zod";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+
+const RegisterRestaurantSchema = z.object({
+  name: z.string().min(1).max(100),
+  email: z.string().email(),
+  password: z.string().min(8).max(100),
+  restaurantName: z.string().min(1).max(100),
+  phone: z.string().max(15).optional(),
+});
 
 export async function POST(req: NextRequest) {
-  try {
-    const { email, name, phone, restaurantName } = await req.json();
+  const { allowed, retryAfter } = await checkRateLimit(getClientIp(req), 3, "1 m");
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
+    );
+  }
 
-    if (!email || !name || !restaurantName) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+  try {
+    const parsed = RegisterRestaurantSchema.safeParse(await req.json());
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     }
+    const { email, name, phone, restaurantName } = parsed.data;
 
     // Check if user already exists in public schema
     const existingUser = await basePrisma.user.findUnique({
