@@ -1,12 +1,8 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { cacheTag, cacheLife } from "next/cache";
 import { MenuClient } from "./menu-client";
 
 async function getMenuCategories(restaurantId: string) {
-  "use cache";
-  cacheTag(`menu-${restaurantId}`);
-  cacheLife("minutes");
   return prisma.category.findMany({
     where: { restaurantId },
     include: {
