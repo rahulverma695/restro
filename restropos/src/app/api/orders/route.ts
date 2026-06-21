@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   if (!session?.user?.restaurantId) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const { restaurantId, userId } = session.user;
+  const { restaurantId, id: userId } = session.user;
 
   try {
     const { orderType, tableId, items, discount, paymentMethod, notes } =
